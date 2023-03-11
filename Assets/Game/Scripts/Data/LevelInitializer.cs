@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Game.Scripts.Data
 {
     [RequireComponent(typeof(AsyncCancellation), typeof(LevelData))]
+    [DefaultExecutionOrder(0)]
     public class LevelInitializer : MonoBehaviour, IAutoInit
     {
         [SerializeField, ReadOnly] private LevelData _levelData;
