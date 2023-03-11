@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4168673401022256702}
   <Scanner>k__BackingField: {fileID: 3081317121047295701}
-  _damage: 10
+  Damage: 30
 --- !u!195 &7249209052081879509 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 5327980240281931201, guid: 482dd53405b3921488d9cf59e0488cc6,

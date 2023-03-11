@@ -12,15 +12,29 @@ namespace Game.Scripts.MonoBehaviours
 
         public int WaveNumber { get; private set; }
         public bool SpawnIsFinished { get; private set; }
+        public static EnemySpawner Instance { get; private set; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void Start()
         {
             SpawnEnemies();
+            LevelLoopSequence.ReadyMoveToNextStageEvent += SpawnEnemies;
+        }
+
+        private void OnDestroy()
+        {
+            LevelLoopSequence.ReadyMoveToNextStageEvent -= SpawnEnemies;
         }
 
         private async void SpawnEnemies()
         {
+            WaveNumber++;
             SpawnIsFinished = false;
+            await UniTask.Delay(2000);
             var delay = _spawnDelayInWave.Evaluate(WaveNumber);
             for (int i = 0; i < _enemiesInWave.Evaluate(WaveNumber); i++)
             {
