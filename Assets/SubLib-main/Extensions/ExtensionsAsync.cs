@@ -117,6 +117,7 @@ namespace SubLib.Extensions
             }
         }
 
+
         public static async UniTask MoveAsync(this Transform transform, Vector3 target, CancellationToken token,
             float duration = 0.1f)
         {

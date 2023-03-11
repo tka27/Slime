@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Game.Scripts.Attributes;
@@ -43,6 +44,7 @@ namespace Game.Scripts.MonoBehaviours
         private void Awake()
         {
             _cts = new(this.GetCancellationTokenOnDestroy());
+            UpdateMaxHealth(1);
         }
 
 
@@ -52,6 +54,11 @@ namespace Game.Scripts.MonoBehaviours
         public void UpdateMaxHealth(float multiplier)
         {
             _maxHealth = _defaultMaxHealth * multiplier;
+            Heal();
+        }
+
+        private void Heal()
+        {
             _currentHealth = _maxHealth;
             OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
         }
@@ -83,7 +90,7 @@ namespace Game.Scripts.MonoBehaviours
 
         private void OnEnable()
         {
-            UpdateMaxHealth(1);
+            Heal();
             _collider.enabled = true;
         }
 

@@ -307,6 +307,11 @@ PrefabInstance:
       propertyPath: _hitable
       value: 
       objectReference: {fileID: 2925374060789492196}
+    - target: {fileID: 1212267935757002635, guid: 47d060cf6e3223941bf856f51f846250,
+        type: 3}
+      propertyPath: _destroyOnKill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1852339238288831282, guid: 47d060cf6e3223941bf856f51f846250,
         type: 3}
       propertyPath: m_Name

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726f5e84f29dfb042bc928a43e5544d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionCurves: {fileID: 11400000, guid: 49d31fc9592ef12409c3326c68e1f9d9, type: 2}
 --- !u!1 &2487777791113706878
 GameObject:
   m_ObjectHideFlags: 0

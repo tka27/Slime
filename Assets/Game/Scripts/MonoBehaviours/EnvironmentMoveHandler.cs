@@ -23,8 +23,8 @@ namespace Game.Scripts.MonoBehaviours
             target.z += MoveStep;
             await transform.MoveAsync(target, default, 1f);
 
-            if (target.z < 1) return;
-            target.z -= MoveStep * 2;
+            if (target.z < 16) return;
+            target.z -= MoveStep * 4;
             transform.position = target;
         }
     }

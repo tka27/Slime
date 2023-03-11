@@ -8,6 +8,8 @@ namespace Game.Scripts.MonoBehaviours
     {
         [SerializeField] private Image _hpImage;
         [SerializeField] private Hitable _hitable;
+        [SerializeField] private bool _destroyOnKill;
+
 
         private void Start()
         {
@@ -23,9 +25,10 @@ namespace Game.Scripts.MonoBehaviours
 
         private void OnKill()
         {
+            if (!_destroyOnKill) return;
+            
             _hitable.OnHealthChanged -= UpdateBar;
             _hitable.OnDeath -= OnKill;
-
             Destroy(gameObject);
         }
 

@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using SubLib.Extensions;
 using SubLib.ObjectPool;
 using UnityEngine;
 
@@ -26,7 +25,7 @@ namespace Game.Scripts.MonoBehaviours
 
             var target = Scanner.CurrentTarget;
             var projectile = _projectilesPool.Get(_projectileStart.position);
-            await projectile.transform.MoveAsync(Scanner.CurrentTarget.AimPoint.position, token);
+            await projectile.Shoot(target);
             if (token.IsCancellationRequested) return;
             projectile.gameObject.SetActive(false);
 

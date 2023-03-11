@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 3673056806898868618}
   <Scanner>k__BackingField: {fileID: 3673056808430262125}
-  Damage: 10
+  Damage: 0
   _projectileStart: {fileID: 3673056806898868629}
   _projectilesPool:
     _pool:

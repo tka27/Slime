@@ -21,7 +21,7 @@ namespace Game.Scripts.MonoBehaviours
         private async void TryMoveNextStage()
         {
             if (!EnemySpawner.Instance.SpawnIsFinished || Enemy.EnemiesCount > 0) return;
-            await UniTask.Delay(3000);
+            await UniTask.Delay(2500);
 
             ReadyMoveToNextStageEvent?.Invoke();
         }

@@ -9,6 +9,8 @@ namespace Game.Scripts.MonoBehaviours
         [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private AnimationCurve _enemiesInWave;
         [SerializeField] private AnimationCurve _spawnDelayInWave;
+        [SerializeField] private AnimationCurve _enemiesHealthMultiplier;
+
 
         public int WaveNumber { get; private set; }
         public bool SpawnIsFinished { get; private set; }
@@ -38,8 +40,10 @@ namespace Game.Scripts.MonoBehaviours
             var delay = _spawnDelayInWave.Evaluate(WaveNumber);
             for (int i = 0; i < _enemiesInWave.Evaluate(WaveNumber); i++)
             {
-                Instantiate(_enemyPrefab, transform.position + SubLib.Utils.Vector3.DisplaceXZ(2), Quaternion.identity);
+                var enemy = Instantiate(_enemyPrefab, transform.position + SubLib.Utils.Vector3.DisplaceXZ(2),
+                    Quaternion.identity);
 
+                enemy.Hitable.UpdateMaxHealth(_enemiesHealthMultiplier.Evaluate(WaveNumber));
                 await UniTask.Delay(TimeSpan.FromSeconds(delay));
             }
 

@@ -18,7 +18,7 @@ namespace Game.Scripts.MonoBehaviours
 
         private const float DefaultNavigationDelay = 0.3f;
         private float _navigationDelay;
-        protected Hitable Hitable => _hitable;
+        public Hitable Hitable => _hitable;
         public StateMachine StateMachine { get; private set; }
 
         private void Awake()
