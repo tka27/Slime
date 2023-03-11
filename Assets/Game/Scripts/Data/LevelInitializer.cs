@@ -21,6 +21,7 @@ namespace Game.Scripts.Data
         {
             LevelData.Instance = _levelData;
             StaticData.Instance = _staticData;
+            Application.targetFrameRate = 75;
         }
     }
 }
