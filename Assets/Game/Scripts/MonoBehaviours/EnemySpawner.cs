@@ -34,7 +34,7 @@ namespace Game.Scripts.MonoBehaviours
         {
             WaveNumber++;
             SpawnIsFinished = false;
-            await UniTask.Delay(2000);
+            await UniTask.Delay(1500);
             var delay = _spawnDelayInWave.Evaluate(WaveNumber);
             for (int i = 0; i < _enemiesInWave.Evaluate(WaveNumber); i++)
             {

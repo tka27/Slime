@@ -16,7 +16,7 @@ namespace Game.Scripts.MonoBehaviours
         [field: SerializeField] public Attackable Attackable { get; private set; }
         [field: SerializeField, @ReadOnly] public NavMeshAgent Agent { get; private set; }
 
-        private const float DefaultNavigationDelay = 1;
+        private const float DefaultNavigationDelay = 0.3f;
         private float _navigationDelay;
         protected Hitable Hitable => _hitable;
         public StateMachine StateMachine { get; private set; }

@@ -53,6 +53,7 @@ namespace Game.Scripts.MonoBehaviours
         {
             _maxHealth = _defaultMaxHealth * multiplier;
             _currentHealth = _maxHealth;
+            OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
         }
 
 
