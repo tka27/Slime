@@ -11,10 +11,10 @@ namespace Game.Scripts.MonoBehaviours
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
     public class Hitable : MonoBehaviour
     {
+        public static event System.Action<int, Hitable> OnDamageTakenWithDamage;
         public event System.Action<float> OnHealthChanged;
         public event System.Action OnDeath;
         public event System.Action OnDamageTaken;
-        [SerializeField] private Transform _aimPoint;
 
 
         [SerializeField] private Renderer _renderer;
@@ -26,6 +26,8 @@ namespace Game.Scripts.MonoBehaviours
         [SerializeField, @ReadOnly] private Collider _collider;
 
         [SerializeField] private bool _enableRegeneration;
+        [field: SerializeField] public Transform AimPoint { get; private set; }
+        [field: SerializeField] public Transform DamageInfoTarget { get; private set; }
 
         [SerializeField, ShowIf("_enableRegeneration")]
         private int _regenerationDelay = 2000;
@@ -37,7 +39,6 @@ namespace Game.Scripts.MonoBehaviours
         private Timer _regenerationTimer;
         private float _maxHealth;
         private ReusableCancellationTokenSource _cts;
-        public Transform AimPoint => _aimPoint;
 
         private void Awake()
         {
@@ -70,6 +71,7 @@ namespace Game.Scripts.MonoBehaviours
 
             OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
             OnDamageTaken?.Invoke();
+            OnDamageTakenWithDamage?.Invoke(damage, this);
             _ = _renderer.BlinkAsync(default, 0.2f);
 
             if (IsAlive) return;
