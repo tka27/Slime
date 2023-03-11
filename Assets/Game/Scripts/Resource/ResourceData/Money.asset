@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: Money
   m_EditorClassIdentifier: 
   _type: 0
-  _price: 1
-  _resourceIcon: {fileID: 21300000, guid: bf6ec261b0802834a807ae2d788ad997, type: 3}
-  _resourceMesh: {fileID: -2929563531361107545, guid: c2f8e5165a2c4c547a81ef950786c5d6,
-    type: 3}
+  _resourceIcon: {fileID: 21300000, guid: 2d0d335419201bb408453d2040209fc1, type: 3}

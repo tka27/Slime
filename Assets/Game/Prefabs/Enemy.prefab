@@ -1367,3 +1367,18 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 4168673401022256702}
   <Attackable>k__BackingField: {fileID: 3846156214067112288}
   <Agent>k__BackingField: {fileID: 7249209052081879509}
+--- !u!114 &81000577435390806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088391181054638839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa521b23defae4049a4aaba08c8b690d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitable: {fileID: 428845546721189360}
+  <Reward>k__BackingField: 100
+  _resourceType: 0
