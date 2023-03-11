@@ -1,4 +1,3 @@
-using System;
 using Cysharp.Threading.Tasks;
 using SubLib.Extensions;
 using UnityEngine;
@@ -10,7 +9,7 @@ namespace Game.Scripts.MonoBehaviours
         public static Player Instance { get; private set; }
 
         [field: SerializeField] public Hitable Hitable { get; private set; }
-        [SerializeField] private Shootable _shootable;
+        [field: SerializeField] public Shootable Shootable;
 
 
         private void Awake()
@@ -36,7 +35,7 @@ namespace Game.Scripts.MonoBehaviours
         private void SwitchComponents(bool value)
         {
             Hitable.enabled = value;
-            _shootable.enabled = value;
+            Shootable.enabled = value;
         }
     }
 }

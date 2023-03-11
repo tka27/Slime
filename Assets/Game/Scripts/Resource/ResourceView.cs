@@ -83,7 +83,7 @@ namespace Game.Scripts.Resource
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
-                AddResource(ResourceType.Money, 100, false, Input.mousePosition);
+                AddResource(ResourceType.Money, 1000, false, Input.mousePosition);
             }
 
             if (Input.GetKeyDown(KeyCode.M))

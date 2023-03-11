@@ -16,16 +16,13 @@ namespace Game.Scripts.MonoBehaviours
 
         [SerializeField, @ReadOnly] private Animator _animator;
         [field: SerializeField] public Scanner Scanner { get; private set; }
-        [SerializeField] private int _damage = 10;
-
-        private ReusableCancellationTokenSource _cts;
 
 
+        public int Damage = 10;
+        protected bool IsCooldown;
         private Transform _parent;
         private int _attackHash = Animator.StringToHash("Attack");
-        protected bool Cooldown;
-
-        protected int Damage => _damage;
+        private ReusableCancellationTokenSource _cts;
 
         public bool TargetInRadius =>
             Scanner.CurrentTarget && transform.DistanceTo(Scanner.CurrentTarget.AimPoint.position) < Scanner.Radius;
@@ -56,16 +53,16 @@ namespace Game.Scripts.MonoBehaviours
         public void DealDamage()
         {
             if (!Scanner.CurrentTarget) return;
-            Scanner.CurrentTarget.TakeDamage(_damage);
+            Scanner.CurrentTarget.TakeDamage(Damage);
             OnDealDamage?.Invoke(Scanner.CurrentTarget);
         }
 
         protected virtual void StartAttack()
         {
-            if (Cooldown) return;
+            if (IsCooldown) return;
             if (Scanner.CurrentTarget == null) return;
 
-            Cooldown = true;
+            IsCooldown = true;
             OnSwitchAgentState?.Invoke(true);
             _animator.SetTrigger(_attackHash);
         }
@@ -79,7 +76,7 @@ namespace Game.Scripts.MonoBehaviours
 
         public virtual void ResetCD()
         {
-            Cooldown = false;
+            IsCooldown = false;
             OnSwitchAgentState?.Invoke(false);
             Scanner.Scan();
         }

@@ -11,14 +11,14 @@ namespace Game.Scripts.MonoBehaviours
     public class Shootable : Attackable
     {
         [SerializeField] private Transform _projectileStart;
-        [SerializeField] private float AttackCooldown = 0.85f;
         [SerializeField] private ObjectPool<Projectile> _projectilesPool;
+        public float AttackCooldown = 0.85f;
 
         private CancellationToken _token;
 
         protected override async void StartAttack()
         {
-            if (Cooldown) return;
+            if (IsCooldown) return;
             if (!Scanner.CurrentTarget) return;
             var token = this.GetCancellationTokenOnDestroy();
             ResetCD();
