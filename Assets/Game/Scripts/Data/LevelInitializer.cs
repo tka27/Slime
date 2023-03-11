@@ -1,7 +1,6 @@
+using SubLib.Async;
 using Unity.Collections;
 using UnityEngine;
-using UtilsSubmodule.Async;
-using static UtilsSubmodule.Utils.Editor;
 
 namespace Game.Scripts.Data
 {
@@ -14,7 +13,7 @@ namespace Game.Scripts.Data
         public void AutoInit()
         {
             _levelData = GetComponent<LevelData>();
-            _staticData = GetAllInstances<StaticData>()[0];
+            _staticData = SubLib.Utils.Editor.GetAllInstances<StaticData>()[0];
         }
 
         private void Awake()
